@@ -37,12 +37,21 @@ class WordAnalyzer:
 
                     #adds word to the word count 
                     for word in words:
-                        if word in self.word_counts:
-                            self.word_counts[word] += 1
+                        if word in self.__frequencies:
+                            self.__frequencies[word] += 1
                         else:
-                            self.word_counts[word] = 1
+                            self.__frequencies[word] = 1
             return True
         #message for it the file isnt found 
         except FileNotFoundError:
             print(f"File could not be found.")
             return False
+
+        
+    def print_report(self):
+        words = list(self.__frequencies.keys())
+        words.sort()
+
+        for word in words:
+            print(f"{word:<10}: {self.frequencies[word]}")
+
