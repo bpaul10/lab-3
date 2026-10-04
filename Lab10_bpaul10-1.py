@@ -5,3 +5,10 @@ Purpose- scans the 4 text files and states how often each word is said alphabeti
 10/4/26
 
 """
+from pathlib import Path
+import string
+
+
+#class to analyze word frequencies of a text file
+class WordAnalyzer:
+
