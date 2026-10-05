@@ -71,6 +71,8 @@ def main():
 
     }
 
+
+    #loop to prommt user of which file to analyze
     while True:
         print("\n---Word Analyzer---")
         print("Please select a file to analyze:")
@@ -85,3 +87,24 @@ def main():
         if choice == "5":
             print("\nGoodbye")
             break
+
+        #safety net for if the choice is not valid 
+        if choice not in files:
+            print("Invalid choice. Please select from 1-5.")
+            input("\nPress Enter to return to the menu...")
+            continue
+
+        filename = files[choice]
+
+        print(f"\nProceaaing '{filename}'...")
+
+        analyzer = WordAnalyzer(filename)
+        if analyzer.process_file():
+            print()
+            analyzer.print_report()
+
+        input("\nPress Enter to return to the menu...")     
+
+if __name__ == "__main__":
+    main()
+        
